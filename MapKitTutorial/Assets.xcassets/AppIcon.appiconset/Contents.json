@@ -26,8 +26,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "40x40",
+      "idiom" : "iphone",
+      "filename" : "iconf-1_120x120.jpeg",
       "scale" : "3x"
     },
     {
@@ -36,9 +37,8 @@
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
       "idiom" : "iphone",
-      "filename" : "iconf.jpeg",
+      "size" : "60x60",
       "scale" : "3x"
     },
     {

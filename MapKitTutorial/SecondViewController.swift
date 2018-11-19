@@ -41,7 +41,7 @@ class SecondViewController: UIViewController {
 
                                             //perform segue
                                         }
-                                        guard let user = authResult?.user else { return }
+                                        guard (authResult?.user) != nil =  else { return }
                                     }
             }
         }else{

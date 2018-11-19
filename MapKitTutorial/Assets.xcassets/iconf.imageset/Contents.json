@@ -2,24 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "iconf-1.jpeg",
+      "filename" : "iconf-1_120x120.jpeg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "iconf.jpeg",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
+      "filename" : "iconf-1_120x120-1.jpeg",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "iconf-1_120x120-2.jpeg",
       "scale" : "3x"
     }
   ],

@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         
     }
     
-    func getDirections(){
+    @objc func getDirections(){
         guard let selectedPin = selectedPin else { return }
         let mapItem = MKMapItem(placemark: selectedPin)
         let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
@@ -67,7 +67,7 @@ extension ViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.first else { return }
-        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
         let region = MKCoordinateRegion(center: location.coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
@@ -95,8 +95,8 @@ extension ViewController: HandleMapSearch {
         }
         
         mapView.addAnnotation(annotation)
-        let span = MKCoordinateSpanMake(0.05, 0.05)
-        let region = MKCoordinateRegionMake(placemark.coordinate, span)
+        let span = MKCoordinateSpan.init(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion.init(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
     }
     
@@ -116,7 +116,7 @@ extension ViewController : MKMapViewDelegate {
         let smallSquare = CGSize(width: 30, height: 30)
         var button: UIButton?
         button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-        button?.setBackgroundImage(UIImage(named: "car"), for: UIControlState())
+        button?.setBackgroundImage(UIImage(named: "car"), for: UIControl.State())
         button?.addTarget(self, action: #selector(ViewController.getDirections), for: .touchUpInside)
         pinView.leftCalloutAccessoryView = button
         
