@@ -41,7 +41,7 @@ class SecondViewController: UIViewController {
 
                                             //perform segue
                                         }
-                                        guard (authResult?.user) != nil =  else { return }
+                                        guard (authResult?.user) != nil else { return }
                                     }
             }
         }else{
@@ -51,4 +51,3 @@ class SecondViewController: UIViewController {
     }
     
 }
-
