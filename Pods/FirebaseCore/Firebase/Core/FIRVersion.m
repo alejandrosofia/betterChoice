@@ -14,13 +14,10 @@
  * limitations under the License.
  */
 
-#ifndef Firebase_VERSION
-#error "Firebase_VERSION is not defined: add -DFirebase_VERSION=... to the build invocation"
+#ifndef Firebase_VERSION -DFIRCore_VERSION= 1
 #endif
 
-#ifndef FIRCore_VERSION
-#error "FIRCore_VERSION is not defined: add -DFIRCore_VERSION=... to the build invocation"
-#endif
+#ifndef FIRCore_VERSION -DFIRCore_VERSION= 2
 
 // The following two macros supply the incantation so that the C
 // preprocessor does not try to parse the version as a floating

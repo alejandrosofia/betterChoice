@@ -20,7 +20,5 @@
 #define STR(x) STR_EXPAND(x)
 #define STR_EXPAND(x) #x
 
-const double FirebaseAuthVersionNum = FIRAuth_MINOR_VERSION;
-
 const unsigned char *const FirebaseAuthVersionStr =
     (const unsigned char *const)STR(FIRAuth_VERSION);

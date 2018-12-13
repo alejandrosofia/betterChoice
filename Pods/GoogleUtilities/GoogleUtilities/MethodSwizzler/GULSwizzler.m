@@ -16,7 +16,6 @@
 
 #import <objc/runtime.h>
 
-#import <GoogleUtilities/GULLogger.h>
 #import "../Common/GULLoggerCodes.h"
 
 #ifdef GUL_UNSWIZZLING_ENABLED

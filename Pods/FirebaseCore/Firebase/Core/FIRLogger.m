@@ -13,9 +13,6 @@
 // limitations under the License.
 
 #import "Private/FIRLogger.h"
-
-#import <FirebaseCore/FIRLoggerLevel.h>
-#import <GoogleUtilities/GULAppEnvironmentUtil.h>
 #import <GoogleUtilities/GULLogger.h>
 
 #import "Private/FIRVersion.h"
@@ -125,28 +122,19 @@ void FIRSetLoggerUserDefaults(NSUserDefaults *defaults) {
  *
  * Analytics can override the log level with an intentional race condition.
  * Add the attribute to get a clean thread sanitizer run.
- */
-__attribute__((no_sanitize("thread"))) BOOL FIRIsLoggableLevel(FIRLoggerLevel loggerLevel,
                                                                BOOL analyticsComponent) {
   FIRLoggerInitializeASL();
   if (sFIRAnalyticsDebugMode && analyticsComponent) {
     return YES;
   }
-  return GULIsLoggableLevel((GULLoggerLevel)loggerLevel);
-}
 
-void FIRLogBasic(FIRLoggerLevel level,
-                 FIRLoggerService service,
-                 NSString *messageCode,
-                 NSString *message,
-                 va_list args_ptr) {
   FIRLoggerInitializeASL();
   GULLogBasic((GULLoggerLevel)level, service,
               sFIRAnalyticsDebugMode && [kFIRLoggerAnalytics isEqualToString:service], messageCode,
               message, args_ptr);
 }
 
-/**
+**
  * Generates the logging functions using macros.
  *
  * Calling FIRLogError(kFIRLoggerCore, @"I-COR000001", @"Configure %@ failed.", @"blah") shows:
@@ -161,12 +149,6 @@ void FIRLogBasic(FIRLoggerLevel level,
     FIRLogBasic(FIRLoggerLevel##level, service, messageCode, message, args_ptr);                \
     va_end(args_ptr);                                                                           \
   }
-
-FIR_LOGGING_FUNCTION(Error)
-FIR_LOGGING_FUNCTION(Warning)
-FIR_LOGGING_FUNCTION(Notice)
-FIR_LOGGING_FUNCTION(Info)
-FIR_LOGGING_FUNCTION(Debug)
 
 #undef FIR_MAKE_LOGGER
 

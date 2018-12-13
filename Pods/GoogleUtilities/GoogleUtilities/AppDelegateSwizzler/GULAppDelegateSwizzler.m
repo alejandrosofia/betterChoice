@@ -15,8 +15,6 @@
 #import "TargetConditionals.h"
 
 #if TARGET_OS_IOS
-
-#import <GoogleUtilities/GULAppEnvironmentUtil.h>
 #import <GoogleUtilities/GULLogger.h>
 #import <GoogleUtilities/GULMutableDictionary.h>
 #import "../Common/GULLoggerCodes.h"
